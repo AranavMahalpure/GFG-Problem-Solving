@@ -9,14 +9,13 @@ class Solution {
   public:
     int findMatching(string text, string pat) {
         // Code here
-        size_t pos = text.find(pat);
+        int pos = text.find(pat);
    
-    if (pos != string::npos) {
-        return static_cast<int>(pos);
-    } else {
+    if(pos>=0){
+        return pos;
+    }
      
         return -1;
-    }
     }
 };
 
