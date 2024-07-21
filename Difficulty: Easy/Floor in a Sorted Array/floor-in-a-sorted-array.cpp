@@ -12,12 +12,27 @@ class Solution {
     int findFloor(vector<long long> v, long long n, long long x) {
 
         // Your code here
-        auto it = lower_bound(v.begin(),v.end(),x);
-        long long ind = it-v.begin();
-        if(v[ind] == x) return ind;
-        else ind = ind-1;
-        if(ind<0) return -1;
-        return ind;
+        long long j=n-1,i=0;
+        int ind =-1;
+        long long mid;
+        while(i<=j)
+        {
+            mid =i+(j-i)/2;
+            if(v[mid]==x){ 
+                ind=mid;
+                break;
+            }
+            
+            if(v[mid]>x)
+            {
+                j=mid-1;
+            }
+            else if(v[mid]<x)
+            {   ind=mid;
+                i=mid+1;
+            }
+       }
+       return ind;
     }
 };
 
