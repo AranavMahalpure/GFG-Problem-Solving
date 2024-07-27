@@ -121,6 +121,24 @@ bool searchKey(Node* head, int key) {
     return false;
 }
 
+
+void addNode(Node *head, int pos, int data)
+{
+   // Your code here
+      if(head == NULL) return ;
+      int cnt=0;
+      Node* curr=head;
+      while(cnt!=pos){
+          curr=curr->next;
+          cnt++;
+      }
+      Node * y=new Node(data);
+      y->next=curr->next;
+      curr->next= y;
+      y->prev=curr;
+}
+
+
 int main() {
     vector<int> v = {1, 2, 3, 4, 5, 6};
     Node* head = convertall(v);
