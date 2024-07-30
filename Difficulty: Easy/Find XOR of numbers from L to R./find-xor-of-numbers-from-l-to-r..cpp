@@ -9,7 +9,8 @@ using namespace std;
 
 class Solution {
   public:
-  int f(int n){
+  
+         int f(int n){
         
         if(n % 4 == 1) return 1;
         if(n % 4 == 2) return n + 1;
@@ -17,10 +18,12 @@ class Solution {
         else return n;
         
     }
-      int findXOR(int l, int r) {
+    
+    public:
+    
+    int findXOR(int l, int r) {
         
         return f(l - 1) ^ f(r);
-        
     }
 };
 
