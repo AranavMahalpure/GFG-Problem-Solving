@@ -7,18 +7,18 @@ using namespace std;
 // User function Template for C++
 class Solution {
   public:
+    long long x=1;
+  long long i=1;
+  vector <long long>v;
     vector<long long> factorialNumbers(long long n) {
-        // Write Your Code here
-        vector<long long> ans;
-        long long sum = 1;
-        for(int i = 1 ; i <= n ; i ++){
-            sum = sum * i;
-            if(sum<=n) ans.push_back(sum);
-            else{
-                break;
-            };
-        }
-        return ans;
+         if(x>n)
+         {
+             return v;
+         }
+            v.push_back(x);
+            i++;
+            x=x*i;
+            return factorialNumbers(n);
     }
 };
 
