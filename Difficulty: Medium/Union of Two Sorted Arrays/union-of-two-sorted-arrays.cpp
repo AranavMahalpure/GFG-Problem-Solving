@@ -13,15 +13,22 @@ class Solution{
     {
         //Your code here
         //return vector with correct order of elements
-        set<int> st; 
-        for( int i=0; i<n; i++ ) 
-            st.insert( arr1[i] );
-        
-        for( int i=0; i<m; i++ ) 
-            st.insert( arr2[i] );
-        
-        vector<int> v( st.begin(), st.end() ); 
-        return v;
+        set<int>mp;
+        vector<int>ans;
+         for( int i=0; i<n; i++)
+         {
+             mp.insert(arr1[i]);
+         }
+          for( int i=0; i<m; i++)
+         {
+             mp.insert(arr2[i]);
+         }
+          for(auto elem: mp)//for( const int&elem:mp)
+         {
+             ans.push_back(elem);
+         }
+         sort(ans.begin(), ans.end());
+         return ans;
     }
 };
 
