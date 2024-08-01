@@ -39,7 +39,6 @@ class Solution {
     Node* y = new Node(value);
     
     if (head == nullptr) {
-
         return y;
     }
     
