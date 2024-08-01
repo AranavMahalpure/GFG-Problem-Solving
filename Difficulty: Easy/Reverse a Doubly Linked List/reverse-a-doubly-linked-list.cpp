@@ -106,16 +106,13 @@ class Solution
         //Your code here 
         
    if (!head) return nullptr; // If the list is empty, return nullptr
-    
     Node* current = head;
     Node* prev = nullptr;
-    
     while (current) {
         // Swap the next and prev pointers of the current node
         Node* next = current->next;
         current->next = current->prev;
         current->prev = next;
-        
         // Move the prev and current pointers one step forward
         prev = current;
         current = next;
