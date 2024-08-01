@@ -32,46 +32,35 @@ struct Node
 
 };
 */
-
 class Solution {
   public:
     Node* deleteNode(Node* head, int x) {
         // Your code here
-           int count = 1;
-        Node* temp = head;
-
-        while(count != x){
-            temp = temp -> next;
-            count++;
-        }
-        
-        if(temp -> prev == NULL){
-            temp = temp -> next;
-            head = temp;
-            temp -> prev = NULL;
-        }
-        
-        else if(temp -> next == NULL){
-            Node* nd = temp -> prev;
-            nd -> next = NULL;
-            temp -> prev = NULL;
-        }
-        
-        else{
-            Node* pr = temp -> prev;
-            Node* nx = temp -> next;
-            
-            temp -> next = pr -> next -> next;
-            temp -> prev = nx -> prev -> prev;
-  
-            temp -> next -> prev = temp -> prev;
-            temp -> prev -> next = temp -> next;
-            
-            temp -> next == NULL;
-            temp -> prev == NULL;
-  
-        }
+        if (!head) return nullptr;  // Handle empty list case
+    if (x == 1) {
+        Node *temp = head;
+        head = head->next;
+        if (head) head->prev = nullptr;
+        delete temp;
         return head;
+    }
+    Node* temp = head;
+    int count = 1;
+    while (temp && count < x) {
+        temp = temp->next;
+        count++;
+    }
+
+    if (!temp) return head; // If x is greater than the number of nodes
+
+    Node* prev = temp->prev;
+    Node* next = temp->next;
+
+    if (prev) prev->next = next;
+    if (next) next->prev = prev;
+
+    delete temp;
+    return head;
     }
 };
 
