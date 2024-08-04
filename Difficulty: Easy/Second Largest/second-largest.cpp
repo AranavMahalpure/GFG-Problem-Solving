@@ -12,22 +12,18 @@ class Solution {
     // largest elements
     int print2largest(vector<int> &arr) {
         // Code Here
-        int largest = arr[0];
-        int second_largest = -1;
-        
-        for(int i=0; i<arr.size(); i++)
-        {
-            if(arr[i] > largest)
-            {
-                second_largest = largest;
-                largest = arr[i];
-            }
-            else if(arr[i] < largest && arr[i] > second_largest)
-            {
-                second_largest = arr[i];
-            }
-        }
-        return second_largest;
+         int largest=arr[0];
+      int slargest=-1;
+      for(int i=1;i<arr.size();i++){
+          if(arr[i]>largest){
+              slargest=largest;
+              largest=arr[i];
+          }
+          else if(arr[i]<largest && arr[i]>slargest){
+              slargest=arr[i];
+          }
+      }
+      return slargest;
     }
 };
 
