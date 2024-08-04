@@ -8,9 +8,9 @@ using namespace std;
 class Solution {
   public:
     long long x=1;
-  long long i=1;
-  vector <long long>v;
-    vector<long long> factorialNumbers(long long n) {
+    long long i=1;
+    vector <long long>v;
+    vector<long long> factorialNumbers(long long n){
          if(x>n)
          {
              return v;
