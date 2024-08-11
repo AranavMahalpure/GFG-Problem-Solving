@@ -11,10 +11,8 @@ class Solution {
         result.push_back(currentSum);
         return;
     }
-
     // Include the current element in the sum
     findSubsetSums(index + 1, n, currentSum + arr[index], arr, result);
-    
     // Exclude the current element from the sum
     findSubsetSums(index + 1, n, currentSum, arr, result);
 }
