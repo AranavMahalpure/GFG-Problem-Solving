@@ -9,30 +9,29 @@ class Solution {
     // Function to find floor of x
     // n: size of vector
     // x: element whose floor is to find
-    int findFloor(vector<long long> v, long long n, long long x) {
+    int findFloor(vector<long long> &v, long long n, long long x) {
 
         // Your code here
-        long long j=n-1,i=0;
-        int ind =-1;
-        long long mid;
-        while(i<=j)
-        {
-            mid =i+(j-i)/2;
-            if(v[mid]==x){ 
-                ind=mid;
-                break;
-            }
-            
-            if(v[mid]>x)
-            {
-                j=mid-1;
-            }
-            else if(v[mid]<x)
-            {   ind=mid;
-                i=mid+1;
-            }
-       }
-       return ind;
+         long long i =0;
+         long long r=n-1;
+         long long mid;
+         int result=-1;
+         while(i<=r){
+             mid=i+(r-i)/2;
+             if(v[mid]==x){
+                 return mid;
+             }
+             
+             else if(v[mid]<x){
+                 i=mid+1;
+                 result =mid;
+                 
+             }
+             else{
+                 r=mid-1;
+             }
+         }
+        return result;
     }
 };
 
