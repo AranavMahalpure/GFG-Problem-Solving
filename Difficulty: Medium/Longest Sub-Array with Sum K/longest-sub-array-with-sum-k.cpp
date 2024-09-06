@@ -9,31 +9,31 @@ class Solution{
     int lenOfLongSubarr(int A[],  int N, int K) 
     { 
         // Complete the function
-        unordered_map<int,int> m;
-        m[0]=0;
-        int i = 0;
-        int prefixSum = 0;
-        int size = 0;
-        while(i<N)
-        {
-            prefixSum+=A[i];
+         int maxlen = 0;
+        int sum = 0;
+        
+        map<int,int> mp;
+        
+        for(int i=0;i<N;i++){
             
+            sum += A[i];
             
-            if(m.count(prefixSum-K))
-            {
-                
-                int j= m[prefixSum-K];
-                
-                size = max(size,i-j+1);
-                
+            if(sum == K){
+                maxlen = max(maxlen,(i+1));
             }
-            if(!m.count(prefixSum))
-            m[prefixSum]=i+1;
-            i++;
+            
+            int rem = sum - K;
+            if(mp.find(rem) != mp.end()){
+                int len = i - mp[rem];
+                maxlen = max(len,maxlen);
+            }
+            
+            if(mp.find(sum) == mp.end()){
+                mp[sum] = i;
+            }
         }
-        return size;
+        return maxlen;
     } 
-
 };
 
 //{ Driver Code Starts.
