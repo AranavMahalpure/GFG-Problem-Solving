@@ -5,20 +5,18 @@
 using namespace std;
 
 class Node {
-public:
+  public:
     int data;
     Node* next;
-  
+
     // Default constructor
-    Node()
-    {
+    Node() {
         data = 0;
         next = NULL;
     }
-  
+
     // Parameterised Constructor
-    Node(int data)
-    {
+    Node(int data) {
         this->data = data;
         this->next = NULL;
     }
@@ -32,14 +30,14 @@ public:
 public:
     int data;
     Node* next;
-  
+
     // Default constructor
     Node()
     {
         data = 0;
         next = NULL;
     }
-  
+
     // Parameterised Constructor
     Node(int data)
     {
@@ -52,16 +50,15 @@ class Solution {
   public:
     Node* constructLL(vector<int>& arr) {
         // code here
-        Node *head = new Node();
-        Node *curr = head;
-        for(auto num : arr){
-            curr->next = new Node(num);
-            curr = curr->next;
-        }
-        
-        return head->next;
-    }  
-    
+    Node  *head=new Node(arr[0]);
+    Node *curr=head;
+    for(int i=1;i<arr.size();i++){
+        Node *Newnode=new Node(arr[i]);
+        curr->next=Newnode;
+        curr=Newnode;
+    }
+    return head;
+    }
 };
 
 //{ Driver Code Starts.
@@ -69,13 +66,18 @@ class Solution {
 int main() {
     int t;
     cin >> t;
+    cin.ignore();
     while (t--) {
-        int n;
-        cin >> n;
-        vector<int> arr(n);
-        for (int i = 0; i < n; i++) cin >> arr[i];
-        Solution obj;
-        Node* ans = obj.constructLL(arr);
+        string line;
+        getline(cin, line);
+        stringstream ss(line);
+        vector<int> arr;
+        int num;
+        while (ss >> num) {
+            arr.push_back(num);
+        }
+        Solution ob;
+        Node* ans = ob.constructLL(arr);
         while (ans) {
             cout << ans->data << " ";
             ans = ans->next;
