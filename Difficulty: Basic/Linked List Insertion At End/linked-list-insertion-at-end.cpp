@@ -35,22 +35,26 @@ struct Node {
 
 class Solution {
   public:
- Node* insertAtEnd(Node* head, int value) {
-    Node* y = new Node(value);
-    
-    if (head == nullptr) {
-        return y;
-    }
-    
-    Node* curr = head;
-    while (curr->next != nullptr) {
-        curr = curr->next;
-    }
+    Node *insertAtEnd(Node *head, int x) {
+        // Code here
+       // Create a new node
+    Node* newnode = new Node(x);
+    newnode->next = nullptr;
 
-    curr->next = y;
-    
+    // If the list is empty, set newnode as the head
+    if (head == nullptr) {
+        head = newnode;
+    } else {
+        // Traverse to the end of the list
+        Node* curr = head;
+        while (curr->next != nullptr) {
+            curr = curr->next;
+        }
+        // Insert the new node at the end
+        curr->next = newnode;
+    }
     return head;
-}
+    }
 };
 
 
