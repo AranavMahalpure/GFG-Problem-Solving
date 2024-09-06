@@ -27,13 +27,21 @@ class Solution {
   public:
     // Function to count nodes of a linked list.
     int getCount(struct Node* head) {
-          int cnt=1;
-          while(head->next!=nullptr){
-              cnt++;
-              head=head->next;
-          }
-          return cnt;
+
         // Code here
+        Node * curr=head;
+        int count=0;
+        if(head==nullptr){
+            return 0;
+            
+        }
+        else{
+            while(curr){
+                curr=curr->next;
+                count++;
+            }
+        }
+        return count;
     }
 };
 
