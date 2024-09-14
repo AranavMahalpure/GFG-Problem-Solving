@@ -29,7 +29,6 @@ int main() {
         cin >> i;
         Solution ob;
         int res = ob.countNodes(i);
-
         cout << res;
         cout << "\n";
     }
