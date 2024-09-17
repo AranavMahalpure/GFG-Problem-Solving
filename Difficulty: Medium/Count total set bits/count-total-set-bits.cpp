@@ -12,24 +12,19 @@ class Solution{
     public:
     // n: input to count the number of set bits
     //Function to return sum of count of set bits in the integers from 1 to n.
-     int f(int n){
-        int cnt=0;
-        while((1<<cnt)<=n) cnt++;
-        
-        return cnt-1;
-    }
     int countSetBits(int n)
     {
         // Your logic here
-        if(n==0) return 0;
+           if(n==0){
+            return 0;
+        }
+        else if(n==1){
+            return 1;
+        }
+        int i=log2(n);
+        int total=0;
         
-        int power= f(n);
-        
-        int uptoP= (1<<(power-1))*power;
-        int afterPtillN= n- (1<<power) +1;
-        int ans= uptoP+ afterPtillN + countSetBits(n- (1<<power));
-        
-        return ans;
+        total=((1<<(i-1))*i) + (n-(1<<i)+1) + countSetBits(n-(1<<i));
         
     }
 };
